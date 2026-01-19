@@ -1,16 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap');
+
+:root {
+    --accent-color: #FFEA00;
+}
+
 /* LAYOUT */
 html, body {
-    width:100%;
-    height:100%;
-    margin:0;
-    padding:0;
-    font-family: Verdana;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Rubik Mono One', Verdana, sans-serif;
+    line-height: 1;
 }
 
 body {
     position: relative;
     display: flex;
     flex-direction: column;
+}
+
+header, main {
+    padding: 10px;
+}
+
+header {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: flex-end;
 }
 
 main {
@@ -20,4 +38,86 @@ main {
 footer {
     width: 100%;
     margin-top: auto;
+}
+
+header h1 {
+    margin: 0;
+    font-size: clamp(3rem, 6vw, 6rem);
+}
+
+#filters {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: flex-end;
+    height: 100%;
+    row-gap: 1.5rem;
+}
+
+.filter {
+    position: relative;
+    font-size: clamp(1rem, 2vw, 1.5rem);
+    text-align: right;
+    line-height: 1.25;
+    cursor: pointer;
+}
+
+.filter.active span {
+    background-image: linear-gradient(#fff 60%, var(--accent-color) 55%);
+}
+
+/*.filter.active:before {*/
+/*    content: '';*/
+/*    position: absolute;*/
+/*    bottom: 0.25em;*/
+/*    width: calc(100% + 10px);*/
+/*    left: -5px;*/
+/*    height: 0.5em;*/
+/*    z-index: -9 ;*/
+/*    background-color: var(--accent-color);*/
+/*}*/
+
+#img-grid {
+    display: flex;
+}
+
+.gallery-img {
+    width: calc(100% / 3 - 20px / 3);
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+@media screen and (max-width: 992px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+        align-items: center;
+        row-gap: 40px;
+    }
+
+    header h1 {
+        font-size: clamp(2.25rem, 5.25vw, 5.25rem);
+    }
+
+    header h1 br {
+        display: none;
+    }
+
+    #filters {
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    .filter {
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 562px) {
+    #filters {
+        flex-wrap: wrap;
+        column-gap: 40px;
+    }
 }
