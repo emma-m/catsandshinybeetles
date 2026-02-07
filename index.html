@@ -5,11 +5,11 @@ layout: default
 <div id="img-grid">
   {% for image in site.static_files %}
     {% if image.path contains '/images/gallery/cats/' %}
-      <img src="{{ image.path }}" class="gallery-img cats" data-groups='["cats"]' alt="">
+      <img src=".{{ image.path }}" class="gallery-img cats" data-groups='["cats"]' alt="">
     {% elsif image.path contains '/images/gallery/beetles/' %}
-      <img src="{{ image.path }}" class="gallery-img beetles" data-groups='["beetles"]' alt="">
+      <img src=".{{ image.path }}" class="gallery-img beetles" data-groups='["beetles"]' alt="">
     {% elsif image.path contains '/images/gallery/both/' %}
-      <img src="{{ image.path }}" class="gallery-img both" data-groups='["both"]' alt="">
+      <img src=".{{ image.path }}" class="gallery-img both" data-groups='["both"]' alt="">
     {% endif %}
   {% endfor %}
 </div>
