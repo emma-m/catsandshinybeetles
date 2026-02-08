@@ -19,3 +19,8 @@ function shuffle(filter) {
     }
     shuffleInstance.filter(selected);
 }
+
+window.onload = function() {
+    document.body.style.position = 'static';
+    document.getElementById('preloader').style.opacity = 0;
+};

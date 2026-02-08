@@ -20,11 +20,12 @@ body {
     position: relative;
     display: flex;
     flex-direction: column;
+    position: fixed;
 }
 
-header, main {
-    padding: calc(var(--grid-gap) * 1px);
-    padding-bottom: 0;
+nav {
+    height: fit-content;
+    position: relative;
 }
 
 header {
@@ -32,10 +33,41 @@ header {
     flex-flow: row nowrap;
     justify-content: space-between;
     align-items: flex-end;
+    padding: 40px calc(var(--grid-gap) * 1px) 55px;
+}
+
+#preloader {
+    width: 100%;
+    height: calc(100vh - 100%);
+    background-color: white;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 99;
+    transition: opacity 0.25s;
+}
+
+#preloader svg {
+    width: 100px;
+    height: 100px;
+    animation: spin 1.25s infinite forwards;
+    transform-origin: center;
+    fill: lightgrey;
+}
+
+@keyframes spin {
+    from { transform: rotateZ(0); }
+    to { transform: rotateZ(360deg); }
 }
 
 main {
     overflow-x: clip;
+    padding: calc(var(--grid-gap) * 1px);
+    padding-top: 0;
+    position: relative;
 }
 
 footer {
@@ -46,6 +78,7 @@ footer {
 header h1 {
     margin: 0;
     font-size: clamp(3rem, 6vw, 6rem);
+    margin-bottom: -0.18em;
 }
 
 #filters {
@@ -75,6 +108,7 @@ header h1 {
 
 .gallery-img {
     width: calc(100% / var(--grid-columns) - ((var(--grid-columns) - 1) * var(--grid-gap) * 1px) / var(--grid-columns));
+    height: auto;
     aspect-ratio: 1/1;
     object-fit: cover;
     margin-bottom: calc(var(--grid-gap) * 1px);
