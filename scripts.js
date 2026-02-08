@@ -22,5 +22,5 @@ function shuffle(filter) {
 
 window.onload = function() {
     document.body.style.position = 'static';
-    document.getElementById('preloader').style.opacity = 0;
+    document.getElementById('preloader').classList.add('content-loaded');
 };

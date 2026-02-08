@@ -58,6 +58,15 @@ header {
     fill: lightgrey;
 }
 
+#preloader.content-loaded {
+    opacity: 0;
+    pointer-events: none;
+}
+
+#preloader.content-loaded svg {
+    animation-iteration-count: revert;
+}
+
 @keyframes spin {
     from { transform: rotateZ(0); }
     to { transform: rotateZ(360deg); }
